@@ -1,0 +1,52 @@
+﻿3.12.
+--修改了目前的Layout,全部使用了百分比布局
+--百分比布局的包在percent_support文件夹中，如果无法生成程序，请将文件复制到项目的app\libs文件夹下
+--以后的更新说明我会全部写到这个txt文件里
+
+3.13
+补充了个人资料和教师窗口信息的布局文件
+完成了完善个人资料的逻辑。
+
+3.18
+新增了CompeleActivity和SelectActivity和teacherWindow三个Activity
+teacherWindow没写什么逻辑、
+SelectActivity是从网上扒下来的，用来模拟一个上弹式窗口
+和它相对应的文件有anim 下的push_in和push_out
+一个poput_Window 布局文件 style.xml主题文件
+和drawable下的两个定义背景和边框的draw_popup文件和for_button文件
+有个Listen_background.xml文件我不小心改了，世豪看看哈，嘻嘻
+还有一个裁剪图片的时候，如果图片的裁剪大小 过大就会程序闪退，我也不知道为什么....
+
+3.20
+新增了两个Layout:drawer、drawer_left分别是抽屉和抽屉的左边
+新增了一个drawable的xml文件:drawer_left_select是被选择时的背景切换
+新增了一个Activity:DrawerActivity
+新增了一个Fragment:DrawerLeftFragment
+新增了3个color的item:
+	clr_green=#7ad01c
+	clr_gray=#666666
+	clr_black=#4a4a4a
+ps1:drawer可以代替today了，请测试一下，我还没测试过
+ps2:以后用到颜色的时候请使用clr_代替，之前的我还没改，会找时间改
+ps3:listitem_background好像没啥问题
+ps4:drawable文件夹里drawer_前缀的图片有的带后缀_selected，那是写监听器时需要使用的
+
+3.21
+修改了layout:drawer、person_information、popup_window
+1、drawer:
+	将fragment的宽度设定由百分比变为了dp
+	之前的drawer被命名为drawer_before_edit	
+2、person_information:
+	修正了一系列布局
+	新的person_information被命名为person_information_editing，
+    修改完PersonActivity后可以把之前的person_info删除，重命名editing版本的
+	editing版本每一行使用一个RelativeLayout，写监听器时可以直接为RelativeLayout写一个onClick什么的
+3、popup_window:
+	修正了一系列布局
+	将所有的Button换成了TextView
+	修改之前忘了保存原有的popup_window，所以请先保存一份原有popup_window再进行合并
+3.28
+大致完成了DrawerActivity的切换，但是很多效果都不太如意，先提交上来，我再找资料改
+
+4.8
+完成了图片轮播器的实现，请大家先完善之前的工作，包括注释等。以及一些小的功能模块。

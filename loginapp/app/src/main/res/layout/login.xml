@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_register_background">
+    <!-- 用户头像 -->
+    <ImageView
+        android:id="@+id/login_user_face"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/login_icon_face"
+        android:scaleType="fitCenter"
+        app:layout_widthPercent="20%h"
+        app:layout_heightPercent="20%h"
+        app:layout_marginTopPercent="4%"/>
+    <!-- 注册-->
+    <TextView
+        android:id="@+id/login_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lnr_register"
+        android:textSize="16sp"
+        android:textColor="#ffffff"
+        app:layout_marginTopPercent="3%"
+        app:layout_marginLeftPercent="87%" />
+    <!-- 欢迎文本-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/lnr_yami"
+        android:textSize="24sp"
+        android:textColor="#ffffff"
+        app:layout_marginTopPercent="28%"/>
+    <!-- 邮箱、密码-->
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:divider="@drawable/login_register_text_field_seprator"
+        android:showDividers="middle|end"
+        app:layout_widthPercent="71%"
+        app:layout_marginTopPercent="42%">
+        <!-- 邮箱 用TextView和EditText实现-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- 文本提示-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lnr_email"
+                android:textSize="16sp"
+                android:textColor="#ffffff" />
+            <!-- 输入框-->
+            <EditText
+                android:id="@+id/login_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:hint="@string/lnr_enterRegisterEmail"
+                android:inputType="textEmailAddress"
+                android:background="@null"
+                app:layout_marginLeftPercent="7%"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <!-- 密码 用TextView和EditText实现-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_marginTopPercent="8%">
+            <!-- 文本提示-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lnr_password"
+                android:textSize="16sp"
+                android:textColor="#ffffff" />
+            <!-- 输入框-->
+            <EditText
+                android:id="@+id/login_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:hint="@string/lnr_enterPsw"
+                android:password="true"
+                android:background="@null"
+                app:layout_marginLeftPercent="7%"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <!-- 登陆按钮-->
+    <Button
+        android:id="@+id/login_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/login_register_button"
+        android:text="@string/lnr_login"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:paddingBottom="15dp"
+        app:layout_marginTopPercent="61%"/>
+
+    <!-- 其他门户网站账号选择-->
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_marginTopPercent="77%"
+        app:layout_heightPercent="8%">
+        <!-- 微博-->
+        <ImageView
+            android:id="@+id/login_webo"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/login_weibo"
+            android:scaleType="fitCenter"
+            app:layout_widthPercent="100%h"/>
+        <!-- 微信-->
+        <ImageView
+            android:id="@+id/login_wechat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/login_wechat"
+            android:scaleType="fitCenter"
+            app:layout_widthPercent="100%h"
+            app:layout_marginLeftPercent="8%"/>
+        <!-- QQ-->
+        <ImageView
+            android:id="@+id/login_qq"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/login_qq"
+            android:scaleType="fitCenter"
+            app:layout_widthPercent="100%h"
+            app:layout_marginLeftPercent="8%"/>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+    <!-- 跳过登陆界面，文本，可响应-->
+    <TextView
+        android:id="@+id/login_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:text="@string/skip"
+        android:textSize="16sp"
+        app:layout_marginTopPercent="90%"/>
+</com.zhy.android.percent.support.PercentRelativeLayout>

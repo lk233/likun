@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/id_drawer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 抽屉的主界面，包括TabHost和返回按钮-->
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TabHost
+                android:id="@+id/tabhost"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!-- 线性布局， 用于存放TabWidget和Fragment-->
+                <com.zhy.android.percent.support.PercentLinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <!-- 相对布局，用于限定TabWidget的大小-->
+                    <com.zhy.android.percent.support.PercentRelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:orientation="horizontal"
+                        android:background="@drawable/clr_green"
+                        app:layout_heightPercent="7%">
+                        <!-- TabWidget，用于标签切换-->
+                        <TabWidget
+                            android:id="@android:id/tabs"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_centerHorizontal="true"
+                            android:tabStripEnabled="false"
+                            android:divider="@null"
+                            app:layout_widthPercent="40%"
+                            app:layout_heightPercent="72%"
+                            app:layout_marginTopPercent="18%">
+                        </TabWidget>
+                    </com.zhy.android.percent.support.PercentRelativeLayout>
+                    <!-- FragmentLayout,用于存放各个标签页-->
+                    <com.zhy.android.percent.support.PercentFrameLayout
+                        android:id="@android:id/tabcontent"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#f1f1f1">
+                        <!-- 今日推荐，包括ViewPager及其组件-->
+                        <com.zhy.android.percent.support.PercentRelativeLayout
+                            android:id="@+id/today_today"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+                            <!--ViewPager，用于实现图片切换-->
+                            <android.support.v4.view.ViewPager
+                                android:id="@+id/viewPager"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_alignParentTop="true"
+                                app:layout_heightPercent="35%"/>
+
+                                <com.zhy.android.percent.support.PercentLinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:layout_marginTop="170dp"
+                                    android:id="@+id/viewGroup"
+                                    android:gravity="center_horizontal"
+                                    android:divider="@drawable/divider1">
+                                </com.zhy.android.percent.support.PercentLinearLayout>
+                            <!-- 无功能TextView，人气菜式-->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/today_hot"
+                                android:textSize="14sp"
+                                android:textColor="#666666"
+                                app:layout_marginTopPercent="35%"
+                                app:layout_marginLeftPercent="5%"/>
+                            <!-- 人气菜式的列表-->
+                            <ListView
+                                android:id="@+id/today_hotlist"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:divider="@android:color/transparent"
+                                android:dividerHeight="10dp"
+                                android:scrollbarThumbVertical="@android:color/transparent"
+                                app:layout_marginTopPercent="40%"
+                                app:layout_widthPercent="95%"
+                                >
+
+                            </ListView>
+                        </com.zhy.android.percent.support.PercentRelativeLayout>
+
+                        <!-- 标签第二页，所有菜式，包括4个TextView和1个ListView-->
+                        <com.zhy.android.percent.support.PercentLinearLayout
+                            android:id="@+id/today_all"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+                            <!-- 用于存储4个TextView-->
+                            <com.zhy.android.percent.support.PercentLinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:orientation="horizontal"
+                                app:layout_heightPercent="7%">
+                                <TextView
+                                    android:text="aaaa"
+                                    android:id="@+id/all_catin"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    android:textColor="@drawable/clr_black"
+                                    app:layout_widthPercent="25%"/>
+                                <TextView
+                                    android:text="aaaa"
+                                    android:id="@+id/all_dish_type"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    android:textColor="@drawable/clr_black"
+                                    app:layout_widthPercent="25%"/>
+                                <TextView
+                                    android:text="aaaa"
+                                    android:id="@+id/all_other1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    android:textColor="@drawable/clr_black"
+                                    app:layout_widthPercent="25%"/>
+                                <TextView
+                                    android:text="aaaa"
+                                    android:id="@+id/all_other2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    android:textColor="@drawable/clr_black"
+                                    app:layout_widthPercent="25%"/>
+                            </com.zhy.android.percent.support.PercentLinearLayout>
+                            <!-- 所有菜式的列表-->
+                            <ListView
+                                android:id="@+id/all_dishlist"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal" />
+                        </com.zhy.android.percent.support.PercentLinearLayout>
+                    </com.zhy.android.percent.support.PercentFrameLayout>
+                </com.zhy.android.percent.support.PercentLinearLayout>
+            </TabHost>
+            <!-- 返回按钮-->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/today_drawer_button"
+                android:scaleType="fitCenter"
+                android:onClick="OpenLeftDrawer"
+                app:layout_widthPercent="4%"
+                app:layout_heightPercent="3%"
+                app:layout_marginTopPercent="2%"
+                app:layout_marginLeftPercent="4%"/>
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+    <!--抽屉的左侧Fragment -->
+    <fragment
+        android:id="@+id/id_left_menu"
+        android:name="com.example.y430.apptest40.DrawerLeftFragment"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:tag="LEFT"
+        tools:layout="@layout/drawer_left_before_edit"/>
+</android.support.v4.widget.DrawerLayout>

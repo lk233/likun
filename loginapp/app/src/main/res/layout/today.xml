@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <com.zhy.android.percent.support.PercentRelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:background="#99cc33"
+            app:layout_heightPercent="7%">
+            <!-- 抽屉按钮-->
+            <ImageView
+                android:id="@+id/today_drawer"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/today_drawer_button"
+                android:scaleType="fitCenter"
+                app:layout_widthPercent="4%"
+                app:layout_heightPercent="35%"
+                app:layout_marginTopPercent="35%"
+                app:layout_marginLeftPercent="4%"/>
+            <!-- 顶部Tab标签-->
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_centerHorizontal="true"
+                app:layout_widthPercent="40%"
+                app:layout_heightPercent="72%"
+                app:layout_marginTopPercent="18%">
+            </TabWidget>
+        </com.zhy.android.percent.support.PercentRelativeLayout>
+        <com.zhy.android.percent.support.PercentFrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f1f1f1">
+            <!--tab 1:今日菜式-->
+            <com.zhy.android.percent.support.PercentRelativeLayout
+                android:id="@+id/today_today"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <!-- 推送食物的图片、名称、地址-->
+                <ImageSwitcher
+                    android:id="@+id/today_sendfood_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="fitCenter"
+                    android:inAnimation="@android:anim/fade_in"
+                    android:outAnimation="@android:anim/fade_out"
+                    app:layout_heightPercent="33%"/>
+                <TextView
+                    android:id="@+id/today_sendfood_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="36sp"
+                    android:gravity="center"
+                    app:layout_heightPercent="9%"
+                    app:layout_marginTopPercent="15%"/>
+                <TextView
+                    android:id="@+id/today_sendfood_addr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@id/today_sendfood_name"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    app:layout_heightPercent="3%" />
+                <!--人气菜式-->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:text="@string/today_hot"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    app:layout_heightPercent="3%"
+                    app:layout_marginTopPercent="35%"
+                    app:layout_marginLeftPercent="5%"/>
+                <!-- 人气菜式列表-->
+                <ListView
+                    android:id="@+id/today_hotlist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    app:layout_marginTopPercent="40%"/>
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+            <!-- 全部菜式，还没写-->
+            <com.zhy.android.percent.support.PercentRelativeLayout
+                android:id="@+id/today_all"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </com.zhy.android.percent.support.PercentRelativeLayout>
+        </com.zhy.android.percent.support.PercentFrameLayout>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+</TabHost>

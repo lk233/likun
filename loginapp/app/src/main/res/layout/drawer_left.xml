@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff">
+    <!-- 用户信息：包括
+    用户头像、用户名、收藏、喜爱数-->
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_heightPercent="10%"
+        app:layout_marginTopPercent="2%"
+        >
+        <!-- 用户头像-->
+        <ImageView
+            android:id="@+id/drawer_left_user_face"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            app:layout_widthPercent="100%h"
+            app:layout_marginLeftPercent="6%"/>
+        <!-- 用于存放用户名、收藏、喜爱数的Linear-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_marginLeftPercent="6%">
+            <!-- 用户名-->
+            <TextView
+                android:id="@+id/drawer_left_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:textSize="18sp"
+                android:textColor="@drawable/clr_black"
+                app:layout_heightPercent="39%"/>
+            <!-- 存放喜爱和收藏的Linear-->
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_heightPercent="31%"
+                app:layout_marginTopPercent="30%">
+                <!-- 喜爱的图片和数量-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/drawer_heart"
+                    android:scaleType="fitCenter"
+                    app:layout_widthPercent="6%"/>
+                <TextView
+                    android:id="@+id/drawer_left_user_loveno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@drawable/clr_black"
+                    android:textSize="14sp"
+                    app:layout_marginLeftPercent="4%"/>
+
+                <!-- 收藏的图片和数量-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/drawer_star"
+                    android:scaleType="fitCenter"
+                    app:layout_widthPercent="6%"
+                    app:layout_marginLeftPercent="6%"/>
+                <TextView
+                    android:id="@+id/drawer_left_user_collectno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@drawable/clr_black"
+                    android:textSize="14sp"
+                    app:layout_marginLeftPercent="4%"/>
+            </com.zhy.android.percent.support.PercentLinearLayout>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <!-- 首页-->
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:id="@+id/drawer_left_home"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="@drawable/drawer_left_select"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="7.5%"
+        android:divider="@drawable/divider"
+        android:showDividers="middle">
+        <!-- 图片、点击时需替换-->
+
+        <ImageView
+            android:id="@+id/drawer_left_home_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/drawer_home"
+            android:scaleType="fitCenter"
+            app:layout_widthPercent="8%"
+            app:layout_heightPercent="40%"
+            app:layout_marginLeftPercent="7%"/>
+        <!-- 文字，点击时需替换颜色为绿-->
+        <TextView
+            android:id="@+id/drawer_left_home_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/drawer_home"
+            android:textSize="18sp"
+            android:textColor="@drawable/clr_gray"
+            app:layout_marginLeftPercent="4%"/>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <!-- 个人信息-->
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:id="@+id/drawer_left_profile"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="@drawable/drawer_left_select"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        app:layout_heightPercent="7%">
+        <!-- 图片、点击时需替换-->
+        <ImageView
+            android:id="@+id/drawer_left_profile_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/drawer_profile"
+            android:scaleType="fitCenter"
+            app:layout_widthPercent="8%"
+            app:layout_heightPercent="40%"
+            app:layout_marginLeftPercent="7%"/>
+        <!-- 文字，点击时需替换颜色为绿-->
+        <TextView
+            android:id="@+id/drawer_left_profile_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/drawer_profile"
+            android:textSize="18sp"
+            android:textColor="@drawable/clr_gray"
+            android:textColorHighlight="@drawable/clr_green"
+            app:layout_marginLeftPercent="4%"/>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <!-- 教师窗口-->
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:id="@+id/drawer_left_teacher"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="@drawable/drawer_left_select"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        app:layout_heightPercent="7%">
+        <!-- 图片、点击时需替换-->
+        <ImageView
+            android:id="@+id/drawer_left_teacher_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/drawer_teacher"
+            android:scaleType="fitCenter"
+            app:layout_widthPercent="8%"
+            app:layout_heightPercent="40%"
+            app:layout_marginLeftPercent="7%"/>
+        <!-- 文字，点击时需替换颜色为绿-->
+        <TextView
+            android:id="@+id/drawer_left_teacher_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/drawer_teacher"
+            android:textSize="18sp"
+            android:textColor="@drawable/clr_gray"
+            android:textColorHighlight="@drawable/clr_green"
+            app:layout_marginLeftPercent="4%"/>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <!-- 设置-->
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:id="@+id/drawer_left_setting"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="@drawable/drawer_left_select"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        app:layout_heightPercent="7%">
+        <!-- 图片、点击时需替换-->
+        <ImageView
+            android:id="@+id/drawer_left_setting_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/drawer_setting"
+            android:scaleType="fitCenter"
+            app:layout_widthPercent="8%"
+            app:layout_heightPercent="40%"
+            app:layout_marginLeftPercent="7%"/>
+        <!-- 文字，点击时需替换颜色为绿-->
+        <TextView
+            android:id="@+id/drawer_left_setting_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/drawer_setting"
+            android:textSize="18sp"
+            android:textColor="@drawable/clr_gray"
+            android:textColorHighlight="@drawable/clr_green"
+            app:layout_marginLeftPercent="4%"/>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <!-- 关于我们-->
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:id="@+id/drawer_left_aboutus"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:background="@drawable/drawer_left_select"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        app:layout_heightPercent="7%">
+        <!-- 图片、点击时需替换-->
+        <ImageView
+            android:id="@+id/drawer_left_aboutus_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/drawer_aboutus"
+            android:scaleType="fitCenter"
+            app:layout_widthPercent="8%"
+            app:layout_heightPercent="40%"
+            app:layout_marginLeftPercent="7%"/>
+        <!-- 文字，点击时需替换颜色为绿-->
+        <TextView
+            android:id="@+id/drawer_left_aboutus_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/drawer_aboutus"
+            android:textSize="18sp"
+            android:textColor="@drawable/clr_gray"
+            android:textColorHighlight="@drawable/clr_green"
+            app:layout_marginLeftPercent="4%"/>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <!-- 退出登录,整个Linear作为监听器的对象-->
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:id="@+id/drawer_left_sign_out"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        app:layout_heightPercent="3%"
+        app:layout_marginTopPercent="40%"
+        app:layout_marginLeftPercent="7%">
+        <!-- 图标-->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/drawer_sign_out"
+            android:scaleType="fitCenter"
+            app:layout_widthPercent="8%" />
+        <!-- 文字-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/drawer_sign_out"
+            android:textSize="14sp"
+            android:textColor="@drawable/clr_gray"
+            app:layout_marginLeftPercent="3%"/>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+</com.zhy.android.percent.support.PercentLinearLayout>

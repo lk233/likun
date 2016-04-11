@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="comdata_comData">完善资料</string>
+    <string name="comdata_selectFace">点击选择头像</string>
+    <string name="comdata_enterName">请输入昵称</string>
+    <string name="comdata_selectSex">点击选择性别</string>
+    <string name="comdata_selectBday">点击选择生日</string>
+    <string name="comdata_selectHtown">点击选择区域</string>
+</resources>

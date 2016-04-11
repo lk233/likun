@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 省份选择-->
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="省份选择"/>
+    <!-- 下拉列表-->
+    <Spinner
+        android:id="@+id/spin_province"
+        android:layout_height="wrap_content"
+        android:entries="@array/province"
+        android:layout_margin="10sp"
+        android:popupBackground="#696969" />
+
+    <!-- 城市选择-->
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="城市选择"/>
+    <!-- 下拉列表-->
+    <Spinner
+        android:id="@+id/spin_city"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:popupBackground="#696969"/>
+</TableLayout>

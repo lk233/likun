@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_register_background">
+    <!-- 标题,完善资料-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/comdata_comData"
+        android:textSize="24sp"
+        android:textColor="#ffffff"
+        app:layout_marginTopPercent="5%"/>
+
+    <!-- 用户头像 -->
+    <ImageView
+        android:id="@+id/comdata_user_face"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/comdata_user_face"
+        app:layout_widthPercent="18%h"
+        app:layout_heightPercent="18%h"
+        app:layout_marginTopPercent="13%"/>
+    <!-- 提示,点击选择头像-->
+    <TextView
+        android:id="@+id/comdata_select_face"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/comdata_user_face"
+        android:layout_centerHorizontal="true"
+        android:text="@string/comdata_selectFace"
+        android:textSize="12sp"
+        android:textColor="#ffffff"
+        app:layout_marginTopPercent="1%"/>
+
+    <!-- 昵称,性别,生日,家乡
+    使用LinearLayout添加分隔条-->
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:divider="@drawable/login_register_text_field_seprator"
+        android:showDividers="middle|end"
+        app:layout_widthPercent="71%"
+        app:layout_marginTopPercent="40%">
+        <!-- 昵称 用TextView和EditText实现-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <!-- 提示-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textSize="16sp"
+                android:textColor="#ffffff" />
+            <!-- 输入框-->
+            <EditText
+                android:id="@+id/comdata_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                android:hint="@string/comdata_enterName"
+                android:background="@null"
+                app:layout_marginLeftPercent="7%"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <!-- 性别 用TextView和EditText实现-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_marginTopPercent="8%">
+            <!-- 提示-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sex"
+                android:textSize="16sp"
+                android:textColor="#ffffff" />
+            <!-- 输入框-->
+            <TextView
+                android:id="@+id/comdata_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/comdata_selectSex"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                app:layout_marginLeftPercent="7%"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <!-- 生日 用TextView和EditText实现-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_marginTopPercent="8%">
+            <!-- 提示-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/birthday"
+                android:textSize="16sp"
+                android:textColor="#ffffff" />
+            <!-- 输入框-->
+            <TextView
+                android:id="@+id/comdata_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/comdata_selectBday"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                app:layout_marginLeftPercent="7%"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <!-- 家乡 用TextView和Text实现-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_marginTopPercent="8%">
+            <!-- 提示-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hometown"
+                android:textSize="16sp"
+                android:textColor="#ffffff" />
+            <!-- 输入框-->
+            <TextView
+                android:id="@+id/comdata_hometown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/comdata_selectHtown"
+                android:textSize="16sp"
+                android:textColor="#ffffff"
+                app:layout_marginLeftPercent="7%"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <!-- 完成按钮-->
+    <Button
+        android:id="@+id/comdata_complete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/login_register_button"
+        android:text="@string/comdata_complete"
+        android:textSize="18sp"
+        android:textColor="#ffffff"
+        android:paddingBottom="15dp"
+        app:layout_marginTopPercent="76%"/>
+
+    <!-- 跳过注册界面-->
+    <TextView
+        android:id="@+id/comdata_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:clickable="true"
+        android:text="@string/skip"
+        android:textSize="16sp"
+        app:layout_marginTopPercent="90%"/>
+</com.zhy.android.percent.support.PercentRelativeLayout>

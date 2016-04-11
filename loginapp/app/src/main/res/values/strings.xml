@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="name">昵称</string>
+    <string name="sex">性别</string>
+    <string name="birthday">生日</string>
+    <string name="hometown">家乡</string>
+    <string name="comdata_complete">完成</string>
+    <string-array name="choose_sexs">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+    <string name="yami_version">呀米 v1.0.0</string>
+    <string name="newUser">新手教程</string>
+    <string name="feedback">反馈</string>
+    <string name="share">分享给朋友</string>
+    <string name="ranking">评分</string>
+    <string name="description">呀米是一款专注于食堂饭菜推荐的软件</string>
+    <string name="terms_of_use">《使用条款》</string>
+</resources>

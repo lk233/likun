@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <!-- 线性布局，水平，包括菜式图片和其他项-->
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center|left"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:background="@drawable/listitem_background"
+        app:layout_widthPercent="91%"
+        app:layout_heightPercent="12%">
+
+        <!-- 显示菜式图片-->
+        <ImageView
+            android:id="@+id/all_img"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/login_icon_face"
+            app:layout_widthPercent="17%w"
+            app:layout_heightPercent="17%w"
+            app:layout_marginLeftPercent="3%"/>
+
+        <!-- 显示菜式名称、价格-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_widthPercent="74%"
+            app:layout_marginLeftPercent="2%">
+            <!-- 菜式名称-->
+            <TextView
+                android:id="@+id/all_name"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:textSize="14sp"
+                android:text="鱼香肉丝"
+                android:textColor="#4a4a4a"
+                app:layout_heightPercent="25%" />
+            <!-- 菜式价格-->
+            <TextView
+                android:id="@+id/all_price"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:text="Y6.5"
+                android:textSize="18sp"
+                android:textColor="#4a4a4a"
+                app:layout_heightPercent="31%"/>
+
+            <!-- 显示地址和喜爱人数-->
+            <com.zhy.android.percent.support.PercentLinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:gravity="center|left"
+                app:layout_heightPercent="16%">
+                <!-- 地址图标-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/today_addr"
+                    android:scaleType="fitCenter"
+                    app:layout_widthPercent="4%" />
+                <!-- 地址-->
+                <TextView
+                    android:id="@+id/all_addr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="一饭一楼A1"
+                    android:textSize="10sp"
+                    android:textColor="#666666"
+                    app:layout_marginLeftPercent="3%"/>
+
+                <!-- 喜爱人数图标-->
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/today_lovedno"
+                    android:scaleType="fitCenter"
+                    app:layout_widthPercent="5%"
+                    app:layout_marginLeftPercent="4%"/>
+                <!-- 喜爱人数-->
+                <TextView
+                    android:id="@+id/all_lovedno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="66"
+                    android:textSize="10sp"
+                    android:textColor="#666666"
+                    app:layout_marginLeftPercent="3%"/>
+            </com.zhy.android.percent.support.PercentLinearLayout>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+</com.zhy.android.percent.support.PercentLinearLayout>

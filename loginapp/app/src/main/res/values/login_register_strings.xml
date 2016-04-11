@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">呀米</string>
+    <string name="lnr_yami">欢迎使用 呀米</string>
+    <string name="lnr_email">邮箱</string>
+    <string name="lnr_password">密码</string>
+    <string name="lnr_checkPsw">确认</string>
+    <string name="lnr_enterEmail">请输入您的邮箱</string>
+    <string name="lnr_enterRegisterEmail">请输入您的注册邮箱</string>
+    <string name="lnr_enterPsw">请输入您的密码</string>
+    <string name="lnr_reEnterPsw">请再次输入您的密码</string>
+    <string name="lnr_register">注册</string>
+    <string name="lnr_login">登陆</string>
+    <string name="skip">>>跳过</string>
+
+</resources>

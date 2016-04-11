@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="today_hot">人气菜式</string>
+    <string name="drawer_home">首页</string>
+    <string name="drawer_profile">个人信息</string>
+    <string name="drawer_teacher">教师窗口</string>
+    <string name="drawer_setting">设置</string>
+    <string name="drawer_aboutus">关于我们</string>
+    <string name="drawer_sign_out">退出登录</string>
+</resources>

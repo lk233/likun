@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/clr_whitedown">
+    <!-- 相对布局 存储返回按钮和标题-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/clr_green"
+        app:layout_heightPercent="7%">
+        <!-- 返回按钮-->
+        <ImageView
+            android:id="@+id/about_return"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:src="@drawable/return_button"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            app:layout_heightPercent="60%"
+            app:layout_widthPercent="6%"
+            app:layout_marginLeftPercent="1%"/>
+        <!--标题-->
+        <TextView
+            android:text="@string/drawer_aboutus"
+            android:textSize="20sp"
+            android:textColor="@drawable/clr_normal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <!-- 图标和版本-->
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/login_icon_face"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center_horizontal"
+        app:layout_widthPercent="22%"
+        app:layout_heightPercent="22%w"
+        app:layout_marginTopPercent="2%"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/yami_version"
+        android:layout_gravity="center_horizontal"
+        android:textSize="20sp"
+        android:textColor="@drawable/clr_black"
+        app:layout_marginTopPercent="2%"/>
+
+    <!-- 新手教程，包括文字和箭头-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:id="@+id/newUserLinear"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/for_touch"
+        android:clickable="true"
+        app:layout_heightPercent="7%"
+        app:layout_marginTopPercent="2%">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/newUser"
+            android:textSize="14sp"
+            android:layout_centerVertical="true"
+            android:textColor="@drawable/clr_black"
+            app:layout_marginLeftPercent="4%" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/head_change"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:layout_heightPercent="30%"
+            app:layout_widthPercent="2%"
+            app:layout_marginRightPercent="4%"/>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <!-- 反馈，同上-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:id="@+id/feedbackLinear"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/for_touch"
+        app:layout_heightPercent="7%">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/feedback"
+            android:textSize="14sp"
+            android:layout_centerVertical="true"
+            android:textColor="@drawable/clr_black"
+            app:layout_marginLeftPercent="4%" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/head_change"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:layout_heightPercent="30%"
+            app:layout_widthPercent="2%"
+            app:layout_marginRightPercent="4%"/>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <!-- 分享给朋友，同上-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:id="@+id/shareLinear"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/for_touch"
+        app:layout_heightPercent="7%">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/share"
+            android:textSize="14sp"
+            android:layout_centerVertical="true"
+            android:textColor="@drawable/clr_black"
+            app:layout_marginLeftPercent="4%" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/head_change"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:layout_heightPercent="30%"
+            app:layout_widthPercent="2%"
+            app:layout_marginRightPercent="4%"/>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <!-- 评分，同上-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:id="@+id/rankingLinear"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/for_touch"
+        app:layout_heightPercent="7%">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ranking"
+            android:textSize="14sp"
+            android:layout_centerVertical="true"
+            android:textColor="@drawable/clr_black"
+            app:layout_marginLeftPercent="4%" />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/head_change"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:layout_heightPercent="30%"
+            app:layout_widthPercent="2%"
+            app:layout_marginRightPercent="4%"/>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <!-- 简介-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/description"
+        android:textColor="@drawable/clr_gray"
+        android:textSize="12sp"
+        android:gravity="center"
+        app:layout_marginTopPercent="2%"/>
+
+    <!-- 使用条款-->
+    <TextView
+        android:id="@+id/terms_of_use"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:text="@string/terms_of_use"
+        android:textColor="@drawable/clr_blue"
+        android:textSize="12sp"
+        app:layout_marginTopPercent="2%"/>
+</com.zhy.android.percent.support.PercentLinearLayout>

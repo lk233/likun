@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2f2f2"
+    android:orientation="vertical">
+
+    <!-- 标题栏，相对布局-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#e56ecd06"
+        app:layout_heightPercent="7%">
+        <!--返回按钮-->
+        <ImageView
+            android:id="@+id/teacher_return"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:clickable="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/return_button"
+            app:layout_heightPercent="60%"
+            app:layout_widthPercent="6%"
+            app:layout_marginLeftPercent="1%"/>
+        <!-- 标题文本-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="教师窗口"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="20dp" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <!-- 第一饭堂，包含一个提示文本-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="7%">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="第一饭堂"
+            android:textColor="@drawable/clr_gray"
+            android:textSize="18dp"
+            android:gravity="center"
+            app:layout_heightPercent="80%"
+            app:layout_widthPercent="20%"
+            app:layout_marginTopPercent="15%"
+            app:layout_marginLeftPercent="2%" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <!-- 相对布局，包含饭堂信息-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/clr_normal"
+        app:layout_heightPercent="8%">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="A12"
+            android:textSize="20dp"
+            android:textColor="@drawable/clr_black"
+            app:layout_heightPercent="80%"
+            app:layout_widthPercent="20%"
+            app:layout_marginTopPercent="18%"
+            app:layout_marginLeftPercent="2%" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <!-- 同上-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/clr_normal"
+        app:layout_heightPercent="8%"
+        app:layout_marginTopPercent="0.18%">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="A13"
+            android:textSize="20dp"
+            android:textColor="@drawable/clr_black"
+            app:layout_heightPercent="80%"
+            app:layout_widthPercent="20%"
+            app:layout_marginTopPercent="18%"
+            app:layout_marginLeftPercent="2%" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <!--同上-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/clr_normal"
+        app:layout_heightPercent="8%"
+        app:layout_marginTopPercent="0.18%">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="A14"
+            android:textSize="20dp"
+            android:textColor="@drawable/clr_black"
+            app:layout_heightPercent="80%"
+            app:layout_widthPercent="20%"
+            app:layout_marginTopPercent="18%"
+            app:layout_marginLeftPercent="2%" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <!-- 同上-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/clr_normal"
+        app:layout_heightPercent="8%"
+        app:layout_marginTopPercent="0.18%">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="A15"
+            android:textSize="20dp"
+            android:textColor="@drawable/clr_black"
+            app:layout_heightPercent="80%"
+            app:layout_widthPercent="20%"
+            app:layout_marginTopPercent="18%"
+            app:layout_marginLeftPercent="2%" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <!-- 第二饭堂-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="7%">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="第二饭堂"
+            android:textSize="18dp"
+            android:textColor="#666666"
+            app:layout_heightPercent="80%"
+            app:layout_widthPercent="20%"
+            app:layout_marginTopPercent="15%"
+            app:layout_marginLeftPercent="2%" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <!--同上-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/clr_normal"
+        app:layout_heightPercent="8%">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="A12"
+            android:textSize="20dp"
+            android:textColor="@drawable/clr_black"
+            app:layout_heightPercent="80%"
+            app:layout_widthPercent="20%"
+            app:layout_marginTopPercent="18%"
+            app:layout_marginLeftPercent="2%" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <!--同上-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/clr_normal"
+        app:layout_heightPercent="8%"
+        app:layout_marginTopPercent="0.18%">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="A13"
+            android:textSize="20dp"
+            android:textColor="@drawable/clr_black"
+            app:layout_heightPercent="80%"
+            app:layout_widthPercent="20%"
+            app:layout_marginTopPercent="18%"
+            app:layout_marginLeftPercent="2%" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <!--同上-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/clr_normal"
+        app:layout_heightPercent="8%"
+        app:layout_marginTopPercent="0.18%">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="A14"
+            android:textSize="20dp"
+            android:textColor="@drawable/clr_black"
+            app:layout_heightPercent="80%"
+            app:layout_widthPercent="20%"
+            app:layout_marginTopPercent="18%"
+            app:layout_marginLeftPercent="2%" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+    <!--同上-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/clr_normal"
+        app:layout_heightPercent="8%"
+        app:layout_marginTopPercent="0.18%">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="A15"
+            android:textSize="20dp"
+            android:textColor="@drawable/clr_black"
+            app:layout_heightPercent="80%"
+            app:layout_widthPercent="20%"
+            app:layout_marginTopPercent="18%"
+            app:layout_marginLeftPercent="2%" />
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+</com.zhy.android.percent.support.PercentLinearLayout>

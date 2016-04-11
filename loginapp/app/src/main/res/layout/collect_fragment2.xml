@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_heightPercent="6.9%"
+        android:orientation="horizontal"
+        app:layout_marginTopPercent="6.1%">
+        <Button
+            android:id="@+id/change_to_drawer2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="9.1%"
+            app:layout_marginLeftPercent="5.3%"
+            android:background="@drawable/today_drawer_button"
+           />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_widthPercent="3.8%"
+            android:background="@drawable/page"
+            app:layout_marginLeftPercent="68%"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="编辑"
+            android:textSize="15dp"
+            app:layout_marginRightPercent="5.3%"
+            app:layout_marginLeftPercent="1%"/>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+
+    <ImageView
+        android:id="@+id/image_f2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/comdata_user_face"
+        app:layout_widthPercent="34.8%"
+        app:layout_heightPercent="56%"
+        android:layout_gravity="center_horizontal"
+       />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="用户名"
+        android:textSize="15dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_marginTopPercent="6.1%"
+        />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_marginTopPercent="4.9%"
+        android:background="@drawable/f1_change"
+        app:layout_widthPercent="6.7%"
+        app:layout_heightPercent="2.9%"
+        app:layout_marginLeftPercent="46.6%"
+
+        />
+
+</com.zhy.android.percent.support.PercentLinearLayout>

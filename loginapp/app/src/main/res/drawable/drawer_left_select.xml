@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 被选中时-->
+    <item android:state_pressed="true"
+        android:drawable="@drawable/drawer_left_selected" />
+    <!--不选择时-->
+    <item android:state_pressed="false"
+        android:drawable="@drawable/clr_normal"/>
+</selector>
