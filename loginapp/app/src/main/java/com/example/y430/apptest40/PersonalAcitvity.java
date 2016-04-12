@@ -68,7 +68,7 @@ public class PersonalAcitvity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.person_information_editing);
+        setContentView(R.layout.person_information);
 
         headButtonl = (RelativeLayout) findViewById(R.id.headLinear);
         nameButtonl = (RelativeLayout) findViewById(R.id.nameLinear);

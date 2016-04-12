@@ -99,7 +99,7 @@ public class SelectPopupWindow extends Activity implements OnClickListener{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.popup_window_editing);
+        setContentView(R.layout.popup_window);
         btn_take_photo = (TextView) this.findViewById(R.id.take_photo);
         btn_pick_photo = (TextView) this.findViewById(R.id.select_photo);
         btn_cancel = (TextView) this.findViewById(R.id.popup_cancel);

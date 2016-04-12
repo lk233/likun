@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.android.percent.support.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- 使用2个线性布局分别完成
+    详细信息、互动-->
+    <!-- 详细信息，线性布局
+    用于所有的信息的存储
+    除：喜爱、收藏、评论、分享-->
+    <com.zhy.android.percent.support.PercentLinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/clr_whitedown">
+        <!-- 菜式图片-->
+        <ImageView
+            android:id="@+id/detail_image"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_heightPercent="28%"/>
+        <!-- 菜式名称-->
+        <TextView
+            android:id="@+id/detail_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="28sp"
+            android:textColor="@drawable/clr_black"
+            app:layout_marginLeftPercent="4%"
+            app:layout_marginTopPercent="2%"/>
+
+        <!-- 原料信息
+        线性布局
+        ：图标、提示文字、内容-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_marginLeftPercent="4%"
+            app:layout_marginTopPercent="2%">
+            <!-- 图标-->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/detail_material"
+                android:scaleType="fitCenter"
+                app:layout_widthPercent="5%"/>
+            <!-- 提示文字-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/material"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@drawable/clr_black"
+                app:layout_marginLeftPercent="2%"/>
+            <!-- 内容
+            应该动态赋值-->
+            <TextView
+                android:id="@+id/detail_material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@drawable/clr_black" />
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <!-- 供应时间
+        线性布局
+        ：图标、提示文字、内容-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_marginLeftPercent="4%"
+            app:layout_marginTopPercent="2%">
+            <!-- 图标-->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/detail_clock"
+                android:scaleType="fitCenter"
+                app:layout_widthPercent="5%"/>
+            <!-- 提示文字-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/clock"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@drawable/clr_black"
+                app:layout_marginLeftPercent="2%"/>
+            <!-- 内容
+            应该动态赋值-->
+            <TextView
+                android:id="@+id/detail_clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@drawable/clr_black" />
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <!-- 供应地点
+        线性布局
+        ：图标、提示文字、内容-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_marginLeftPercent="4%"
+            app:layout_marginTopPercent="2%">
+            <!-- 图标-->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/detail_place"
+                android:scaleType="fitCenter"
+                app:layout_widthPercent="5%"/>
+            <!-- 提示文字-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/place"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@drawable/clr_black"
+                app:layout_marginLeftPercent="2%"/>
+            <!-- 内容
+            应该动态赋值-->
+            <TextView
+                android:id="@+id/detail_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@drawable/clr_black" />
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <!-- 口味
+        线性布局
+        ：图标、提示文字、内容-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_marginLeftPercent="4%"
+            app:layout_marginTopPercent="2%">
+            <!-- 图标-->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/detail_taste"
+                android:scaleType="fitCenter"
+                app:layout_widthPercent="5%"/>
+            <!-- 提示文字-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/taste"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@drawable/clr_black"
+                app:layout_marginLeftPercent="2%"/>
+            <!-- 内容
+            应该动态赋值-->
+            <TextView
+                android:id="@+id/detail_taste"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@drawable/clr_black" />
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <!-- 菜式描述
+        线性布局
+        ：图标、提示文字
+        内容置于下面的TextView-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_marginLeftPercent="4%"
+            app:layout_marginTopPercent="2%">
+            <!-- 图标-->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/detail_description"
+                android:scaleType="fitCenter"
+                app:layout_widthPercent="5%"/>
+            <!-- 提示文字-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dish_desciption"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:textColor="@drawable/clr_black"
+                app:layout_marginLeftPercent="2%"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <!-- 菜式描述的内容，
+        应动态赋值-->
+        <TextView
+            android:id="@+id/detail_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@drawable/clr_black"
+            app:layout_widthPercent="84%"
+            app:layout_marginLeftPercent="11%"
+            app:layout_marginTopPercent="1%"/>
+    </com.zhy.android.percent.support.PercentLinearLayout>
+
+    <!-- 互动、线性布局
+    功能：
+    喜爱、收藏、评论、分享-->
+    <com.zhy.android.percent.support.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/clr_normal"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        app:layout_heightPercent="7%">
+
+        <!-- 喜爱-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:id="@+id/detail_love"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_marginLeftPercent="4%"
+            app:layout_widthPercent="18%">
+            <!-- 喜爱图标-->
+            <ImageView
+                android:id="@+id/detail_love_img"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/detail_heart"
+                android:scaleType="fitCenter"
+                app:layout_widthPercent="30%"
+                app:layout_heightPercent="45%" />
+            <!-- 喜爱人数
+            应动态赋值-->
+            <TextView
+                android:id="@+id/detail_loveno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="268"
+                android:textSize="14sp"
+                android:textColor="@drawable/clr_lightGray"
+                app:layout_marginLeftPercent="5%"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <!-- 收藏-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:id="@+id/detail_collect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_marginLeftPercent="22%"
+            app:layout_widthPercent="18%">
+            <!-- 收藏图标-->
+            <ImageView
+                android:id="@+id/detail_collect_img"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/detail_star"
+                android:scaleType="fitCenter"
+                app:layout_widthPercent="30%"
+                app:layout_heightPercent="45%" />
+            <!-- 收藏人数
+            应动态赋值-->
+            <TextView
+                android:id="@+id/detail_collectno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="268"
+                android:textSize="14sp"
+                android:textColor="@drawable/clr_lightGray"
+                app:layout_marginLeftPercent="5%"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <!-- 评论-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:id="@+id/detail_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_marginLeftPercent="40%"
+            app:layout_widthPercent="18%">
+        <!-- 评论图标-->
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/detail_comment"
+            android:scaleType="fitCenter"
+            app:layout_widthPercent="30%"
+            app:layout_heightPercent="45%" />
+        <!-- 评论人数
+        应动态赋值-->
+        <TextView
+            android:id="@+id/detail_commentno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="268"
+            android:textSize="14sp"
+            android:textColor="@drawable/clr_lightGray"
+            app:layout_marginLeftPercent="5%"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+
+        <!-- 分享-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:id="@+id/detail_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_marginLeftPercent="58%">
+            <!-- 分享图标-->
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/detail_share"
+                android:scaleType="fitCenter"
+                app:layout_widthPercent="30%"
+                app:layout_heightPercent="45%" />
+            <!-- 分享文本-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dish_share"
+                android:textSize="14sp"
+                android:textColor="@drawable/clr_lightGray"
+                app:layout_marginLeftPercent="5%"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+    </com.zhy.android.percent.support.PercentRelativeLayout>
+
+    <!-- 返回按钮-->
+    <ImageView
+        android:id="@+id/detail_return"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/return_button"
+        android:clickable="true"
+        app:layout_heightPercent="4%"
+        app:layout_widthPercent="6%"
+        app:layout_marginLeftPercent="1%"
+        app:layout_marginTopPercent="2%"/>
+</com.zhy.android.percent.support.PercentRelativeLayout>
