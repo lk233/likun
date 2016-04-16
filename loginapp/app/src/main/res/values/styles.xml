@@ -23,8 +23,15 @@
         ;!-- 背景透明 -->
         <item name="android:backgroundDimEnabled">true</item>
         ;!-- 模糊 -->
+    </style>
 
-
+    <style name="AllMenuButton">
+        <item name="android:background">@drawable/button_selector</item>
+        <item name="android:button">@null</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@drawable/clr_black</item>
+        <item name="android:textColorHint">@drawable/clr_normal</item>
+        <item name="android:gravity">center</item>
     </style>
 
 </resources>

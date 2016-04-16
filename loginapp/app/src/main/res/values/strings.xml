@@ -27,4 +27,9 @@
     <string name="taste">口味：</string>
     <string name="dish_desciption">描述：</string>
     <string name="dish_share">分享</string>
+
+    <!-- all-->
+    <string name="allcatin">全部饭堂</string>
+    <string name="the_1st">一饭</string>
+    <string name="the_2nd">二饭</string>
 </resources>

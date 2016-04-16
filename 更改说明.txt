@@ -1,4 +1,10 @@
-﻿4.12
+﻿4.16
+增加了新的layout：all_catin_popwindow.xml
+增加了新的class：RadioGroup
+功能：用于菜式筛选中的饭堂筛选，使用了重写的RadioGroup做单选钮
+小改动：增加了一些string，增加了一组style
+
+4.12
 增加了新的layout：detail.xml
 修正了about.xml中的一些设置问题
 增加了detail相关的一系列图片，以detail_为前缀
