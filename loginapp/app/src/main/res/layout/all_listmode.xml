@@ -12,7 +12,7 @@
         android:gravity="center|left"
         android:orientation="horizontal"
         android:clickable="true"
-        android:background="@drawable/listitem_background"
+        android:background="@drawable/listitem_background_selected"
         app:layout_widthPercent="91%"
         app:layout_heightPercent="12%">
 

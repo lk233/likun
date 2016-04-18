@@ -1,4 +1,19 @@
-﻿4.16
+﻿4.18
+增加了新的layout：all_price_popwindow.xml
+		  all_taste_popwindow.xml
+		  all_dish_popwindow.xml
+增加了新的drawable文件：radio_selected
+			radio_unselected
+			radio_selector
+增加了新的string
+修改了已有的style
+PS：
+1、在新增的三个layout中，作为实验，dish的radiobutton的宽度使用了wrap_content
+2、由于android studio的预览问题，radiobutton的背景边框看起来和示例不同，实机测试应该是差不多的，但是可能需要微调
+3、希望能反馈一下效果之间的区别，方便我调整
+			——王世豪
+
+4.16
 增加了新的layout：all_catin_popwindow.xml
 增加了新的class：RadioGroup
 功能：用于菜式筛选中的饭堂筛选，使用了重写的RadioGroup做单选钮

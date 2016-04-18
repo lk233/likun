@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/clr_whitedown">
+    <!-- 选择价格，使用单选钮组件-->
+    <com.example.y430.apptest40.RadioGroup
+        android:id="@+id/select_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- 使用线性布局存放单选钮-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <!-- 所有价格，单选钮-->
+            <RadioButton
+                android:id="@+id/item_allprice"
+                android:text="@string/allprice"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                style="@style/AllMenuButton"
+                app:layout_widthPercent="21%"
+                app:layout_heightPercent="50%"
+                app:layout_marginLeftPercent="4%"/>
+
+            <!-- 0~3元，单选钮-->
+            <RadioButton
+                android:id="@+id/item_0to3"
+                android:text="@string/price_0to3"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                style="@style/AllMenuButton"
+                app:layout_widthPercent="18%"
+                app:layout_heightPercent="50%"
+                app:layout_marginLeftPercent="4%"/>
+
+            <!-- 3~5元，单选钮-->
+            <RadioButton
+                android:id="@+id/item_3to5"
+                android:text="@string/price_3to5"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                style="@style/AllMenuButton"
+                app:layout_widthPercent="18%"
+                app:layout_heightPercent="50%"
+                app:layout_marginLeftPercent="4%"/>
+
+            <!-- 5~10元，单选钮-->
+            <RadioButton
+                android:id="@+id/item_5to10"
+                android:text="@string/price_5to10"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                style="@style/AllMenuButton"
+                app:layout_widthPercent="21%"
+                app:layout_heightPercent="50%"
+                app:layout_marginLeftPercent="4%"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+        <!-- 同上-->
+        <com.zhy.android.percent.support.PercentLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- 10元以上，单选钮-->
+            <RadioButton
+                android:id="@+id/item_above10"
+                android:text="@string/price_above10"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                style="@style/AllMenuButton"
+                app:layout_widthPercent="21%"
+                app:layout_heightPercent="50%"
+                app:layout_marginLeftPercent="4%"/>
+        </com.zhy.android.percent.support.PercentLinearLayout>
+    </com.example.y430.apptest40.RadioGroup>
+</LinearLayout>

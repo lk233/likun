@@ -29,7 +29,30 @@
     <string name="dish_share">分享</string>
 
     <!-- all-->
+    <!--饭堂-->
     <string name="allcatin">全部饭堂</string>
-    <string name="the_1st">一饭</string>
-    <string name="the_2nd">二饭</string>
+    <string name="catin_1st">一饭</string>
+    <string name="catin_2nd">二饭</string>
+
+    <!--菜式-->
+    <string name="alldish">所有菜式</string>
+    <string name="dish_dessert">甜点</string>
+    <string name="dish_cake">糕点</string>
+    <string name="dish_soup">汤</string>
+    <string name="dish_set">套餐</string>
+    <string name="dish_normal">普通菜式</string>
+
+    <!--口味-->
+    <string name="alltaste">所有口味</string>
+    <string name="taste_sweet">甜</string>
+    <string name="taste_peppery">辣</string>
+    <string name="taste_sour">酸</string>
+    <string name="taste_salty">咸</string>
+
+    <!--价格-->
+    <string name="allprice">所有价格</string>
+    <string name="price_0to3">0～3元</string>
+    <string name="price_3to5">3～5元</string>
+    <string name="price_5to10">5～10元</string>
+    <string name="price_above10">10元以上</string>
 </resources>

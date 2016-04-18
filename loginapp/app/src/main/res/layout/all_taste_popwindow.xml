@@ -4,21 +4,21 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/clr_whitedown">
-    <!--饭堂选择 使用单选钮组件-->
+    <!-- 选择口味，使用单选钮组件-->
     <com.example.y430.apptest40.RadioGroup
-        android:id="@+id/select_catin"
+        android:id="@+id/select_taste"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <!--使用线性布局存放单选钮-->
+        <!-- 使用线性布局存放单选钮-->
         <com.zhy.android.percent.support.PercentLinearLayout
             android:layout_width="match_parent"
             android:layout_height="64dp"
             android:orientation="horizontal"
             android:gravity="center_vertical">
-            <!-- 全部饭堂，单选钮-->
+            <!-- 所有口味，单选钮-->
             <RadioButton
-                android:id="@+id/item_allcatin"
-                android:text="@string/allcatin"
+                android:id="@+id/item_alltaste"
+                android:text="@string/alltaste"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 style="@style/AllMenuButton"
@@ -26,27 +26,50 @@
                 app:layout_heightPercent="50%"
                 app:layout_marginLeftPercent="4%"/>
 
-            <!-- 一饭，单选钮-->
+            <!-- 甜，单选钮-->
             <RadioButton
-                android:id="@+id/item_1st"
-                android:text="@string/catin_1st"
+                android:id="@+id/item_sweet"
+                android:text="@string/taste_sweet"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 style="@style/AllMenuButton"
-                app:layout_widthPercent="14%"
+                app:layout_widthPercent="10%"
                 app:layout_heightPercent="50%"
                 app:layout_marginLeftPercent="4%"/>
 
-            <!-- 二饭，单选钮-->
+            <!-- 辣，单选钮-->
             <RadioButton
-                android:id="@+id/item_2nd"
-                android:text="@string/catin_2nd"
+                android:id="@+id/item_peppery"
+                android:text="@string/taste_peppery"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 style="@style/AllMenuButton"
-                app:layout_widthPercent="14%"
+                app:layout_widthPercent="10%"
+                app:layout_heightPercent="50%"
+                app:layout_marginLeftPercent="4%"/>
+
+            <!-- 酸，单选钮-->
+            <RadioButton
+                android:id="@+id/item_sour"
+                android:text="@string/taste_sour"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                style="@style/AllMenuButton"
+                app:layout_widthPercent="10%"
+                app:layout_heightPercent="50%"
+                app:layout_marginLeftPercent="4%"/>
+
+            <!-- 咸，单选钮-->
+            <RadioButton
+                android:id="@+id/item_salty"
+                android:text="@string/taste_salty"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                style="@style/AllMenuButton"
+                app:layout_widthPercent="10%"
                 app:layout_heightPercent="50%"
                 app:layout_marginLeftPercent="4%"/>
         </com.zhy.android.percent.support.PercentLinearLayout>
+        <!-- 同上-->
     </com.example.y430.apptest40.RadioGroup>
 </LinearLayout>
