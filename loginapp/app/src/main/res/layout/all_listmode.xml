@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.android.percent.support.PercentLinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
-    <!-- 线性布局，水平，包括菜式图片和其他项-->
     <com.zhy.android.percent.support.PercentLinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
         android:gravity="center|left"
         android:orientation="horizontal"
-        android:clickable="true"
         android:background="@drawable/listitem_background_selected"
-        app:layout_widthPercent="91%"
-        app:layout_heightPercent="12%">
+        >
 
         <!-- 显示菜式图片-->
-        <ImageView
+        <image.SmartImageView
             android:id="@+id/all_img"
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -38,20 +31,19 @@
             <TextView
                 android:id="@+id/all_name"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 android:textSize="14sp"
                 android:text="鱼香肉丝"
                 android:textColor="#4a4a4a"
-                app:layout_heightPercent="25%" />
+                 />
             <!-- 菜式价格-->
             <TextView
                 android:id="@+id/all_price"
                 android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:text="Y6.5"
+                android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textColor="#4a4a4a"
-                app:layout_heightPercent="31%"/>
+                />
 
             <!-- 显示地址和喜爱人数-->
             <com.zhy.android.percent.support.PercentLinearLayout
@@ -97,4 +89,3 @@
             </com.zhy.android.percent.support.PercentLinearLayout>
         </com.zhy.android.percent.support.PercentLinearLayout>
     </com.zhy.android.percent.support.PercentLinearLayout>
-</com.zhy.android.percent.support.PercentLinearLayout>

@@ -37,6 +37,9 @@
         <activity android:name=".PersonalAcitvity" >
 
         </activity>
+        <activity android:name=".DetailActivity" >
+
+        </activity>
 
         <activity android:name=".DrawerActivity"
             android:theme="@android:style/Theme.Translucent">

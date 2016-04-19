@@ -29,8 +29,8 @@ public class MainActivity extends ActionBarActivity {
         //设置leancloud 的 app id和key
         AVOSCloud.initialize(this, "tmAX26HrS79nP9m4MWIdNpd9-gzGzoHsz", "GRvOBv9r390Lwcd4QuzupmXu");
        /*获取菜式的新方法
-        List<YMDish> objects=new ArrayList<YMDish>();
-        GetTodayDishes hotDishes=new GetTodayDishes(objects);
+        List<YMDish> objects_hot=new ArrayList<YMDish>();
+        GetTodayDishes hotDishes=new GetTodayDishes(objects_hot);
         hotDishes.start();
         加上try这个一段，让主线程等待GetTodayDishes这个线程结束。
         try{

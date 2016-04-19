@@ -1,4 +1,8 @@
-﻿4.18
+﻿4.19
+增加了all_dish的界面展示以及点击事件
+PS：世豪要对展示效果做下微调
+
+4.18
 增加了新的layout：all_price_popwindow.xml
 		  all_taste_popwindow.xml
 		  all_dish_popwindow.xml

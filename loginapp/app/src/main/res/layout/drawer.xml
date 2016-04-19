@@ -79,7 +79,7 @@
                                 app:layout_marginLeftPercent="5%"/>
                             <!-- 人气菜式的列表-->
                             <ListView
-                                android:id="@+id/today_hotlist"
+                                android:id="@+id/today_list"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
@@ -147,6 +147,7 @@
                                 android:id="@+id/all_dishlist"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:divider="@android:color/transparent"
                                 android:layout_gravity="center_horizontal" />
                         </com.zhy.android.percent.support.PercentLinearLayout>
                     </com.zhy.android.percent.support.PercentFrameLayout>

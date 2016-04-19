@@ -9,7 +9,7 @@
         android:background="@drawable/listitem_background_selected">
         <!-- 显示菜式图片-->
         <image.SmartImageView
-            android:id="@+id/today_hot_img"
+            android:id="@+id/today_img"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scaleType="fitCenter"
@@ -25,19 +25,19 @@
             app:layout_widthPercent="67%"
             app:layout_marginLeftPercent="4%">
             <TextView
-                android:id="@+id/today_hot_name"
+                android:id="@+id/today_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:textColor="#4a4a4a" />
             <TextView
-                android:id="@+id/today_hot_price"
+                android:id="@+id/today_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"
                 android:textColor="#4a4a4a" />
             <TextView
-                android:id="@+id/today_hot_desc"
+                android:id="@+id/today_desc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -59,7 +59,7 @@
                     app:layout_widthPercent="5%"
                     app:layout_marginLeftPercent="30%"/>
                 <TextView
-                    android:id="@+id/today_hot_addr"
+                    android:id="@+id/today_addr"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="10sp"
@@ -73,7 +73,7 @@
                     app:layout_widthPercent="7%"
                     app:layout_marginLeftPercent="80%"/>
                 <TextView
-                    android:id="@+id/today_hot_lovedno"
+                    android:id="@+id/today_lovedno"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textSize="10sp"

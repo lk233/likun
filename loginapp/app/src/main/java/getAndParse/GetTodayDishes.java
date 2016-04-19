@@ -73,7 +73,7 @@ public class GetTodayDishes extends Thread {
             }
             int taste = dish.getInt("taste");
             int likeNumber = dish.getInt("likeNumber");
-            String dishSmallImage = dish.getString("dish");
+            String dishSmallImage = dish.getString("dishSmallImage");
             String dishLargeImage = dish.getString("dishLargeImage");
             float price = (float) dish.getDouble("price");
             List<String> locations = dish.getList("locations");//获得String数组
@@ -89,8 +89,6 @@ public class GetTodayDishes extends Thread {
                     price, ymDishLocations, description, favoriteNumber);
             rDishes.add(rDishe);
         }
-        for(int i=0;i<rDishes.size();i++)
-        System.out.println(rDishes.get(i).toString());
     }
 
 }
