@@ -1,4 +1,13 @@
-﻿4.19
+﻿4.20
+DrawerLeft的高亮完成
+全部菜式的PopWindow样式完成，但是还没有写popwindow的消失
+删除了一些drawable中的xml
+合并了一些drawable中的xml
+
+4.19
+Tabhost修改完成
+ListView的高亮已经设置了，还需要调整
+4.19
 增加了all_dish的界面展示以及点击事件
 PS：世豪要对展示效果做下微调
 

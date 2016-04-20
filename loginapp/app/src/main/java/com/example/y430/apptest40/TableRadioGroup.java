@@ -1,7 +1,7 @@
 package com.example.y430.apptest40;
 
 /**
- * Created by Y430 on 2016/4/16.
+ * Created by admin on 2016/4/19.
  */
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 
 
-public class RadioGroup extends LinearLayout {
+public class TableRadioGroup extends LinearLayout {
     // holds the checked id; the selection is empty by default
     private int mCheckedId = -1;
     // tracks children radio buttons checked state
@@ -29,7 +29,7 @@ public class RadioGroup extends LinearLayout {
     /**
      * {@inheritDoc}
      */
-    public RadioGroup(Context context) {
+    public TableRadioGroup(Context context) {
         super(context);
         setOrientation(VERTICAL);
         init();
@@ -38,7 +38,7 @@ public class RadioGroup extends LinearLayout {
     /**
      * {@inheritDoc}
      */
-    public RadioGroup(Context context, AttributeSet attrs) {
+    public TableRadioGroup(Context context, AttributeSet attrs) {
         super(context, attrs);
         mCheckedId = View.NO_ID;
 
@@ -90,7 +90,7 @@ public class RadioGroup extends LinearLayout {
                     ((RadioButton) child).setChecked(true);
                     checkRadioButton((RadioButton) child);
                     if(mOnCheckedChangeListener != null){
-                        mOnCheckedChangeListener.onCheckedChanged(RadioGroup.this, child.getId());
+                        mOnCheckedChangeListener.onCheckedChanged(TableRadioGroup.this, child.getId());
                     }
                     return true;
                 }
@@ -111,7 +111,7 @@ public class RadioGroup extends LinearLayout {
                             ((RadioButton) button).setChecked(true);
                             checkRadioButton((RadioButton) button);
                             if(mOnCheckedChangeListener != null){
-                                mOnCheckedChangeListener.onCheckedChanged(RadioGroup.this, button.getId());
+                                mOnCheckedChangeListener.onCheckedChanged(TableRadioGroup.this, button.getId());
                             }
                             return true;
                         }
@@ -195,12 +195,12 @@ public class RadioGroup extends LinearLayout {
 
     @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
-        return new RadioGroup.LayoutParams(getContext(), attrs);
+        return new TableRadioGroup.LayoutParams(getContext(), attrs);
     }
 
     @Override
     protected boolean checkLayoutParams(ViewGroup.LayoutParams p) {
-        return p instanceof RadioGroup.LayoutParams;
+        return p instanceof TableRadioGroup.LayoutParams;
     }
 
     @Override
@@ -211,13 +211,13 @@ public class RadioGroup extends LinearLayout {
     @Override
     public void onInitializeAccessibilityEvent(AccessibilityEvent event) {
         super.onInitializeAccessibilityEvent(event);
-        event.setClassName(RadioGroup.class.getName());
+        event.setClassName(TableRadioGroup.class.getName());
     }
 
     @Override
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
         super.onInitializeAccessibilityNodeInfo(info);
-        info.setClassName(RadioGroup.class.getName());
+        info.setClassName(TableRadioGroup.class.getName());
     }
 
     public static class LayoutParams extends LinearLayout.LayoutParams {
@@ -275,7 +275,7 @@ public class RadioGroup extends LinearLayout {
     }
 
     public interface OnCheckedChangeListener {
-        public void onCheckedChanged(RadioGroup group, int checkedId);
+        public void onCheckedChanged(TableRadioGroup group, int checkedId);
     }
 
     private class CheckedStateTracker implements CompoundButton.OnCheckedChangeListener {
@@ -304,7 +304,7 @@ public class RadioGroup extends LinearLayout {
          * {@inheritDoc}
          */
         public void onChildViewAdded(View parent, View child) {
-            if (parent == RadioGroup.this && child instanceof RadioButton) {
+            if (parent == TableRadioGroup.this && child instanceof RadioButton) {
                 int id = child.getId();
                 // generates an id if it's missing
                 if (id == View.NO_ID) {
@@ -324,7 +324,7 @@ public class RadioGroup extends LinearLayout {
          * {@inheritDoc}
          */
         public void onChildViewRemoved(View parent, View child) {
-            if (parent == RadioGroup.this && child instanceof RadioButton) {
+            if (parent == TableRadioGroup.this && child instanceof RadioButton) {
                 ((RadioButton) child).setOnCheckedChangeListener(null);
             }
 

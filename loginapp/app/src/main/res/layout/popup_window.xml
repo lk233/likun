@@ -60,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:clickable="true"
-        android:background="@drawable/listitem_background_selected"
+        android:background="@drawable/listitem_selector"
         android:gravity="center"
         android:text="@string/info_cancel"
         android:textSize="20sp"

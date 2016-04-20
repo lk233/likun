@@ -30,12 +30,11 @@
                         <TabWidget
                             android:id="@android:id/tabs"
                             android:layout_width="0dp"
-                            android:layout_height="0dp"
+                            android:layout_height="match_parent"
                             android:layout_centerHorizontal="true"
                             android:tabStripEnabled="false"
                             android:divider="@null"
                             app:layout_widthPercent="40%"
-                            app:layout_heightPercent="72%"
                             app:layout_marginTopPercent="18%">
                         </TabWidget>
                     </com.zhy.android.percent.support.PercentRelativeLayout>
@@ -45,6 +44,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="#f1f1f1">
+
                         <!-- 今日推荐，包括ViewPager及其组件-->
                         <com.zhy.android.percent.support.PercentRelativeLayout
                             android:id="@+id/today_today"
@@ -83,13 +83,13 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_centerHorizontal="true"
+                                android:listSelector="@android:color/transparent"
+                                android:background="@android:color/transparent"
                                 android:divider="@android:color/transparent"
                                 android:dividerHeight="10dp"
                                 android:scrollbarThumbVertical="@android:color/transparent"
                                 app:layout_marginTopPercent="40%"
-                                app:layout_widthPercent="95%"
-                                >
-
+                                app:layout_widthPercent="95%">
                             </ListView>
                         </com.zhy.android.percent.support.PercentRelativeLayout>
 
@@ -145,10 +145,15 @@
                             <!-- 所有菜式的列表-->
                             <ListView
                                 android:id="@+id/all_dishlist"
-                                android:layout_width="wrap_content"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:listSelector="@android:color/transparent"
+                                android:background="@android:color/transparent"
                                 android:divider="@android:color/transparent"
-                                android:layout_gravity="center_horizontal" />
+                                android:dividerHeight="10dp"
+                                android:scrollbarThumbVertical="@android:color/transparent"
+                                android:layout_gravity="center_horizontal"
+                                app:layout_widthPercent="95%"/>
                         </com.zhy.android.percent.support.PercentLinearLayout>
                     </com.zhy.android.percent.support.PercentFrameLayout>
                 </com.zhy.android.percent.support.PercentLinearLayout>
@@ -173,5 +178,5 @@
         android:layout_height="match_parent"
         android:layout_gravity="left"
         android:tag="LEFT"
-        tools:layout="@layout/drawer_left_before_edit"/>
+        tools:layout="@layout/drawer_left"/>
 </android.support.v4.widget.DrawerLayout>

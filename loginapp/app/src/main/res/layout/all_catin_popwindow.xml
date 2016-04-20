@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/clr_whitedown">
     <!--饭堂选择 使用单选钮组件-->
-    <com.example.y430.apptest40.RadioGroup
+    <com.example.y430.apptest40.TableRadioGroup
         android:id="@+id/select_catin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -48,5 +48,5 @@
                 app:layout_heightPercent="50%"
                 app:layout_marginLeftPercent="4%"/>
         </com.zhy.android.percent.support.PercentLinearLayout>
-    </com.example.y430.apptest40.RadioGroup>
+    </com.example.y430.apptest40.TableRadioGroup>
 </LinearLayout>

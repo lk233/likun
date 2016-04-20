@@ -13,8 +13,7 @@
         android:layout_height="0dp"
         android:orientation="horizontal"
         app:layout_heightPercent="10%"
-        app:layout_marginTopPercent="2%"
-        >
+        app:layout_marginTopPercent="2%">
         <!-- 用户头像-->
         <ImageView
             android:id="@+id/drawer_left_user_face"
@@ -84,33 +83,34 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        android:background="@drawable/drawer_left_select"
+        android:background="@drawable/drawer_left_selector"
         android:gravity="center_vertical"
         android:clickable="true"
+        android:focusable="true"
         app:layout_heightPercent="7%"
         app:layout_marginTopPercent="7.5%"
         android:divider="@drawable/divider"
         android:showDividers="middle">
-        <!-- 图片、点击时需替换-->
 
+        <!-- 图片、点击时需替换-->
         <ImageView
-            android:id="@+id/drawer_left_home_img"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@drawable/drawer_home"
+            android:src="@drawable/drawer_home_selector"
+            android:duplicateParentState="true"
             android:scaleType="fitCenter"
             app:layout_widthPercent="8%"
             app:layout_heightPercent="40%"
             app:layout_marginLeftPercent="7%"/>
         <!-- 文字，点击时需替换颜色为绿-->
         <TextView
-            android:id="@+id/drawer_left_home_txt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:duplicateParentState="true"
             android:gravity="center"
             android:text="@string/drawer_home"
             android:textSize="18sp"
-            android:textColor="@drawable/clr_gray"
+            android:textColor="@drawable/drawer_text_selector"
             app:layout_marginLeftPercent="4%"/>
     </com.zhy.android.percent.support.PercentLinearLayout>
 
@@ -120,30 +120,30 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        android:background="@drawable/drawer_left_select"
+        android:background="@drawable/drawer_left_selector"
         android:gravity="center_vertical"
         android:clickable="true"
+        android:focusable="true"
         app:layout_heightPercent="7%">
         <!-- 图片、点击时需替换-->
         <ImageView
-            android:id="@+id/drawer_left_profile_img"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@drawable/drawer_profile"
+            android:src="@drawable/drawer_profile_selector"
+            android:duplicateParentState="true"
             android:scaleType="fitCenter"
             app:layout_widthPercent="8%"
             app:layout_heightPercent="40%"
             app:layout_marginLeftPercent="7%"/>
         <!-- 文字，点击时需替换颜色为绿-->
         <TextView
-            android:id="@+id/drawer_left_profile_txt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:duplicateParentState="true"
             android:text="@string/drawer_profile"
             android:textSize="18sp"
-            android:textColor="@drawable/clr_gray"
-            android:textColorHighlight="@drawable/clr_green"
+            android:textColor="@drawable/drawer_text_selector"
             app:layout_marginLeftPercent="4%"/>
     </com.zhy.android.percent.support.PercentLinearLayout>
 
@@ -153,30 +153,30 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        android:background="@drawable/drawer_left_select"
+        android:background="@drawable/drawer_left_selector"
         android:gravity="center_vertical"
         android:clickable="true"
+        android:focusable="true"
         app:layout_heightPercent="7%">
         <!-- 图片、点击时需替换-->
         <ImageView
-            android:id="@+id/drawer_left_teacher_img"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@drawable/drawer_teacher"
+            android:duplicateParentState="true"
+            android:src="@drawable/drawer_teacher_selector"
             android:scaleType="fitCenter"
             app:layout_widthPercent="8%"
             app:layout_heightPercent="40%"
             app:layout_marginLeftPercent="7%"/>
         <!-- 文字，点击时需替换颜色为绿-->
         <TextView
-            android:id="@+id/drawer_left_teacher_txt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
+            android:duplicateParentState="true"
             android:text="@string/drawer_teacher"
             android:textSize="18sp"
-            android:textColor="@drawable/clr_gray"
-            android:textColorHighlight="@drawable/clr_green"
+            android:textColor="@drawable/drawer_text_selector"
             app:layout_marginLeftPercent="4%"/>
     </com.zhy.android.percent.support.PercentLinearLayout>
 
@@ -186,30 +186,30 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        android:background="@drawable/drawer_left_select"
+        android:background="@drawable/drawer_left_selector"
         android:gravity="center_vertical"
         android:clickable="true"
+        android:focusable="true"
         app:layout_heightPercent="7%">
         <!-- 图片、点击时需替换-->
         <ImageView
-            android:id="@+id/drawer_left_setting_img"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@drawable/drawer_setting"
+            android:src="@drawable/drawer_setting_selector"
             android:scaleType="fitCenter"
+            android:duplicateParentState="true"
             app:layout_widthPercent="8%"
             app:layout_heightPercent="40%"
             app:layout_marginLeftPercent="7%"/>
         <!-- 文字，点击时需替换颜色为绿-->
         <TextView
-            android:id="@+id/drawer_left_setting_txt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:duplicateParentState="true"
             android:gravity="center"
             android:text="@string/drawer_setting"
             android:textSize="18sp"
-            android:textColor="@drawable/clr_gray"
-            android:textColorHighlight="@drawable/clr_green"
+            android:textColor="@drawable/drawer_text_selector"
             app:layout_marginLeftPercent="4%"/>
     </com.zhy.android.percent.support.PercentLinearLayout>
 
@@ -219,30 +219,30 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        android:background="@drawable/drawer_left_select"
-        android:gravity="center_vertical"
+        android:background="@drawable/drawer_left_selector"
         android:clickable="true"
+        android:focusable="true"
+        android:gravity="center_vertical"
         app:layout_heightPercent="7%">
         <!-- 图片、点击时需替换-->
         <ImageView
-            android:id="@+id/drawer_left_aboutus_img"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:src="@drawable/drawer_aboutus"
+            android:src="@drawable/drawer_aboutus_selector"
             android:scaleType="fitCenter"
+            android:duplicateParentState="true"
             app:layout_widthPercent="8%"
             app:layout_heightPercent="40%"
             app:layout_marginLeftPercent="7%"/>
         <!-- 文字，点击时需替换颜色为绿-->
         <TextView
-            android:id="@+id/drawer_left_aboutus_txt"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:duplicateParentState="true"
             android:gravity="center"
             android:text="@string/drawer_aboutus"
             android:textSize="18sp"
-            android:textColor="@drawable/clr_gray"
-            android:textColorHighlight="@drawable/clr_green"
+            android:textColor="@drawable/drawer_text_selector"
             app:layout_marginLeftPercent="4%"/>
     </com.zhy.android.percent.support.PercentLinearLayout>
 

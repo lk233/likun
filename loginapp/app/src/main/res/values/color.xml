@@ -8,6 +8,5 @@
     <drawable name="clr_lightGray">#9b9b9b</drawable>
     <drawable name="clr_backGray">#efefef</drawable>
     <drawable name="clr_black">#4a4a4a</drawable>
-    <drawable name="clr_lightGreen">#b2b2b2</drawable>
     <drawable name="clr_blue">#0076ff</drawable>
 </resources>

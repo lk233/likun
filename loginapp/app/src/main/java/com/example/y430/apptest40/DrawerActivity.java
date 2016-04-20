@@ -12,6 +12,7 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
@@ -27,6 +28,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.SimpleAdapter;
 import android.widget.TabHost;
 import android.widget.TabWidget;
@@ -73,6 +75,12 @@ public class DrawerActivity extends FragmentActivity
     String []all_addr;   //全部菜式的位置信息
     int    []all_lovedno;   //全部菜式的点赞数*/
 
+    //popupWindow对象
+    PopupWindow popup_canteen;
+    PopupWindow popup_dish;
+    PopupWindow popup_taste;
+    PopupWindow popup_price;
+
     private DrawerLayout mDrawerLayout;
     private TabHost tabHost;
     @Override
@@ -81,27 +89,6 @@ public class DrawerActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.drawer);
-
-        //从后台获取热门菜式的方法
-        objects_hot =new ArrayList<YMDish>();
-        hotDishes=new GetHotDishes(objects_hot);
-        hotDishes.start();
-        //加上try这个一段，让主线程等待GetHotDishes这个线程结束。
-        try{
-            hotDishes.join();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-         ///从后台获取今日菜式的方法
-        objects_today =new ArrayList<YMDish>();
-        todayDishes=new GetTodayDishes(objects_today);
-        todayDishes.start();
-        //加上try这个一段，让主线程等待GetTodayDishes这个线程结束。
-        try{
-            todayDishes.join();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
 
 
         initView();
@@ -119,23 +106,241 @@ public class DrawerActivity extends FragmentActivity
         tabHost.addTab(tab2);
         updateTab(tabHost);//调用updateTab  修改字体格式
 
-      init_top_images();  //初始化图片轮播界面
+        //从后台获取热门菜式的方法
+        objects_hot =new ArrayList<YMDish>();
+        hotDishes=new GetHotDishes(objects_hot);
+        hotDishes.start();
+        //加上try这个一段，让主线程等待GetHotDishes这个线程结束。
+        try{
+            hotDishes.join();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        ///从后台获取今日菜式的方法
+        objects_today =new ArrayList<YMDish>();
+        todayDishes=new GetTodayDishes(objects_today);
+        todayDishes.start();
+        //加上try这个一段，让主线程等待GetTodayDishes这个线程结束。
+        try{
+            todayDishes.join();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+        init_top_images();  //初始化图片轮播界面
        init_today_dish();  //初始化今日菜式
        init_all_dish();   //初始化全部菜式
 
+        //筛选popWindow的实现
+        View all_canteen = this.getLayoutInflater().inflate(R.layout.all_catin_popwindow,null);
+        View all_dish = this.getLayoutInflater().inflate(R.layout.all_dish_popwindow,null);
+        View all_taste = this.getLayoutInflater().inflate(R.layout.all_taste_popwindow,null);
+        View all_price = this.getLayoutInflater().inflate(R.layout.all_price_popwindow,null);
 
+        popup_canteen = new PopupWindow(all_canteen,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        popup_dish = new PopupWindow(all_dish,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        popup_taste = new PopupWindow(all_taste,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        popup_price = new PopupWindow(all_price,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        //四个筛选标签
+        final TextView tv_all_canteen = (TextView)findViewById(R.id.all_catin);
+        tv_all_canteen.setText("全部饭堂");
+        final TextView tv_all_dish = (TextView)findViewById(R.id.all_dish_type);
+        tv_all_dish.setText("所有菜式");
+        final TextView tv_all_taste = (TextView)findViewById(R.id.all_other1);
+        tv_all_taste.setText("菜式口味");
+        final TextView tv_all_price = (TextView)findViewById(R.id.all_other2);
+        tv_all_price.setText("菜式价格");
+
+        //四个标签的点击侦听
+        tv_all_canteen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //先关闭其他的
+                if (popup_dish.isShowing())
+                    popup_dish.dismiss();
+                else if(popup_taste.isShowing())
+                    popup_taste.dismiss();
+                else if(popup_price.isShowing())
+                    popup_price.dismiss();
+
+                //是否打开自己的
+                if (popup_canteen.isShowing()) {
+                    popup_canteen.dismiss();
+                }
+                else
+                    popup_canteen.showAsDropDown(v);
+            }
+        });
+
+        tv_all_dish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //先关闭其他的
+                if (popup_canteen.isShowing())
+                    popup_canteen.dismiss();
+                else if(popup_taste.isShowing())
+                    popup_taste.dismiss();
+                else if(popup_price.isShowing())
+                    popup_price.dismiss();
+
+
+                //是否打开自己的
+                if (popup_dish.isShowing())
+                    popup_dish.dismiss();
+                else
+                    popup_dish.showAsDropDown(v);
+            }
+        });
+
+        tv_all_taste.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //先关闭其他的
+                if (popup_dish.isShowing())
+                    popup_dish.dismiss();
+                else if(popup_canteen.isShowing())
+                    popup_taste.dismiss();
+                else if(popup_price.isShowing())
+                    popup_price.dismiss();
+
+                //是否打开自己的
+                if (popup_taste.isShowing())
+                    popup_taste.dismiss();
+                else
+                    popup_taste.showAsDropDown(v);
+            }
+        });
+        tv_all_price.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //先关闭其他的
+                if (popup_dish.isShowing())
+                    popup_dish.dismiss();
+                else if(popup_taste.isShowing())
+                    popup_taste.dismiss();
+                else if(popup_canteen.isShowing())
+                    popup_price.dismiss();
+                //是否打开自己的
+                if (popup_price.isShowing())
+                    popup_price.dismiss();
+                else
+                    popup_price.showAsDropDown(v);
+            }
+        });
+
+        //每个标签里面popupWindow内容的点击事件
+        //all_canteen的PopupWindow
+        TableRadioGroup select_canteen = (TableRadioGroup)all_canteen.findViewById(R.id.select_catin);
+        select_canteen.setOnCheckedChangeListener(new TableRadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(TableRadioGroup group, int checkedId) {
+                if(checkedId == R.id.item_allcatin) {
+                    tv_all_canteen.setText("全部饭堂");
+                }
+                else if(checkedId == R.id.item_1st) {
+                    tv_all_canteen.setText("一饭");
+                }
+                else if(checkedId == R.id.item_2nd) {
+                    tv_all_canteen.setText("二饭");
+                }
+
+            }
+        });
+
+
+        //all_dish的PopupWindow
+        TableRadioGroup select_dish = (TableRadioGroup)all_dish.findViewById(R.id.select_dish);
+
+        select_dish.setOnCheckedChangeListener(new TableRadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(TableRadioGroup group, int checkedId) {
+                if (checkedId == R.id.item_alldish) {
+                    tv_all_dish.setText("所有菜式");
+                }
+                else if(checkedId == R.id.item_dessert){
+                    tv_all_dish.setText("甜点");
+                }
+                else if(checkedId == R.id.item_cake){
+                    tv_all_dish.setText("糕点");
+                }
+                else if(checkedId == R.id.item_soup){
+                    tv_all_dish.setText("汤");
+                }
+                else if(checkedId == R.id.item_set){
+                    tv_all_dish.setText("套餐");
+                }
+                else if(checkedId == R.id.item_normal){
+                    tv_all_dish.setText("普通菜式");
+                }
+            }
+        });
+
+
+        //all_taste的PopupWindow
+        TableRadioGroup select_taste = (TableRadioGroup)all_taste.findViewById(R.id.select_taste);
+
+        select_taste.setOnCheckedChangeListener(new TableRadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(TableRadioGroup group, int checkedId) {
+                if (checkedId == R.id.item_alltaste) {
+                    tv_all_taste.setText("所有口味");
+                }
+                else if(checkedId == R.id.item_sweet){
+                    tv_all_taste.setText("甜");
+                }
+                else if(checkedId == R.id.item_peppery){
+                    tv_all_taste.setText("辣");
+                }
+                else if(checkedId == R.id.item_sour){
+                    tv_all_taste.setText("酸");
+                }
+                else if(checkedId == R.id.item_salty){
+                    tv_all_taste.setText("咸");
+                }
+
+            }
+        });
+
+        //all_price的PopupWindow
+        TableRadioGroup select_price = (TableRadioGroup)all_price.findViewById(R.id.select_price);
+
+        select_price.setOnCheckedChangeListener(new TableRadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(TableRadioGroup group, int checkedId) {
+                if (checkedId == R.id.item_allprice) {
+                    tv_all_price.setText("所有价格");
+                }
+                else if (checkedId == R.id.item_0to3) {
+                    tv_all_price.setText("0~3元");
+                }
+                else if (checkedId == R.id.item_3to5) {
+                    tv_all_price.setText("3~5元");
+                }
+                else if (checkedId == R.id.item_5to10) {
+                    tv_all_price.setText("5~10元");
+                }
+                else if (checkedId == R.id.item_above10) {
+                    tv_all_price.setText("10元以上");
+                }
+
+            }
+        });
 
 
     }
     //标签格式
     private void updateTab(TabHost tabHost){
         for(int i=0;i<tabHost.getTabWidget().getChildCount();++i) {
-            tabHost.getTabWidget().getChildAt(i).setBackgroundResource(R.drawable.tab_selector);
+            tabHost.getTabWidget().getChildAt(i).setBackgroundResource(R.drawable.clr_green);
             TextView tv = (TextView) tabHost.getTabWidget().getChildAt(i).findViewById(android.R.id.title);
             tv.setTextColor(Color.WHITE);
-            tv.setBackgroundResource(R.drawable.clr_green);
             tv.setGravity(Gravity.CENTER);
             tv.setTextSize(16);
+            Drawable tab_draw=getResources().getDrawable(R.drawable.tab_indicator_selector);
+            tab_draw.setBounds(0, 0, tab_draw.getMinimumWidth(), tab_draw.getMinimumHeight());
+            tv.setCompoundDrawablesWithIntrinsicBounds(null,null,null,tab_draw);
+            tv.setCompoundDrawablePadding(-10);
             LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
             tv.setLayoutParams(params);
             final TabWidget tabWidget=tabHost.getTabWidget();
@@ -436,7 +641,17 @@ public class DrawerActivity extends FragmentActivity
         list_all.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                System.out.println("1");
+                //关闭popupWindow
+                if (popup_dish.isShowing())
+                    popup_dish.dismiss();
+                else if(popup_canteen.isShowing())
+                    popup_taste.dismiss();
+                else if(popup_price.isShowing())
+                    popup_price.dismiss();
+                else if(popup_taste.isShowing())
+                    popup_taste.dismiss();
+
+                //跳转至Detail的Activity
                 Intent intent = new Intent();
                 intent.setClass(DrawerActivity.this, DetailActivity.class);
                 Bundle bundle = new Bundle();

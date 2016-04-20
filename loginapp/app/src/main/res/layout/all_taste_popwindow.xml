@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/clr_whitedown">
     <!-- 选择口味，使用单选钮组件-->
-    <com.example.y430.apptest40.RadioGroup
+    <com.example.y430.apptest40.TableRadioGroup
         android:id="@+id/select_taste"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -71,5 +71,5 @@
                 app:layout_marginLeftPercent="4%"/>
         </com.zhy.android.percent.support.PercentLinearLayout>
         <!-- 同上-->
-    </com.example.y430.apptest40.RadioGroup>
+    </com.example.y430.apptest40.TableRadioGroup>
 </LinearLayout>
