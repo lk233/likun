@@ -12,6 +12,8 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -21,6 +23,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.DrawerLayout.DrawerListener;
 import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -81,6 +84,8 @@ public class DrawerActivity extends FragmentActivity
     PopupWindow popup_taste;
     PopupWindow popup_price;
 
+    List<Map<String,Object>> listItems_all;//用来和all_dish的adapter绑定
+    SimpleAdapter simpleAdapter;//all_dish的adapter
     private DrawerLayout mDrawerLayout;
     private TabHost tabHost;
     @Override
@@ -105,6 +110,7 @@ public class DrawerActivity extends FragmentActivity
                 .setContent(R.id.today_all);
         tabHost.addTab(tab2);
         updateTab(tabHost);//调用updateTab  修改字体格式
+
 
         //从后台获取热门菜式的方法
         objects_hot =new ArrayList<YMDish>();
@@ -133,15 +139,15 @@ public class DrawerActivity extends FragmentActivity
        init_all_dish();   //初始化全部菜式
 
         //筛选popWindow的实现
-        View all_canteen = this.getLayoutInflater().inflate(R.layout.all_catin_popwindow,null);
-        View all_dish = this.getLayoutInflater().inflate(R.layout.all_dish_popwindow,null);
-        View all_taste = this.getLayoutInflater().inflate(R.layout.all_taste_popwindow,null);
-        View all_price = this.getLayoutInflater().inflate(R.layout.all_price_popwindow,null);
+        final View pop_all_canteen = this.getLayoutInflater().inflate(R.layout.all_catin_popwindow,null);
+        final View pop_all_dish = this.getLayoutInflater().inflate(R.layout.all_dish_popwindow,null);
+        View pop_all_taste = this.getLayoutInflater().inflate(R.layout.all_taste_popwindow,null);
+        View pop_all_price = this.getLayoutInflater().inflate(R.layout.all_price_popwindow,null);
 
-        popup_canteen = new PopupWindow(all_canteen,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        popup_dish = new PopupWindow(all_dish,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        popup_taste = new PopupWindow(all_taste,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        popup_price = new PopupWindow(all_price,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        popup_canteen = new PopupWindow(pop_all_canteen,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        popup_dish = new PopupWindow(pop_all_dish,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        popup_taste = new PopupWindow(pop_all_taste,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        popup_price = new PopupWindow(pop_all_price,ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.WRAP_CONTENT);
         //四个筛选标签
         final TextView tv_all_canteen = (TextView)findViewById(R.id.all_catin);
         tv_all_canteen.setText("全部饭堂");
@@ -156,7 +162,8 @@ public class DrawerActivity extends FragmentActivity
         tv_all_canteen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //先关闭其他的
+
+                //是否关闭其他的
                 if (popup_dish.isShowing())
                     popup_dish.dismiss();
                 else if(popup_taste.isShowing())
@@ -176,14 +183,13 @@ public class DrawerActivity extends FragmentActivity
         tv_all_dish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //先关闭其他的
+                //是否关闭其他的
                 if (popup_canteen.isShowing())
                     popup_canteen.dismiss();
                 else if(popup_taste.isShowing())
                     popup_taste.dismiss();
                 else if(popup_price.isShowing())
                     popup_price.dismiss();
-
 
                 //是否打开自己的
                 if (popup_dish.isShowing())
@@ -196,11 +202,11 @@ public class DrawerActivity extends FragmentActivity
         tv_all_taste.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //先关闭其他的
+                //是否关闭其他的
                 if (popup_dish.isShowing())
                     popup_dish.dismiss();
                 else if(popup_canteen.isShowing())
-                    popup_taste.dismiss();
+                    popup_canteen.dismiss();
                 else if(popup_price.isShowing())
                     popup_price.dismiss();
 
@@ -214,13 +220,14 @@ public class DrawerActivity extends FragmentActivity
         tv_all_price.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //先关闭其他的
+                //是否关闭其他的
                 if (popup_dish.isShowing())
                     popup_dish.dismiss();
                 else if(popup_taste.isShowing())
                     popup_taste.dismiss();
                 else if(popup_canteen.isShowing())
-                    popup_price.dismiss();
+                    popup_canteen.dismiss();
+
                 //是否打开自己的
                 if (popup_price.isShowing())
                     popup_price.dismiss();
@@ -231,18 +238,67 @@ public class DrawerActivity extends FragmentActivity
 
         //每个标签里面popupWindow内容的点击事件
         //all_canteen的PopupWindow
-        TableRadioGroup select_canteen = (TableRadioGroup)all_canteen.findViewById(R.id.select_catin);
+        TableRadioGroup select_canteen = (TableRadioGroup)pop_all_canteen.findViewById(R.id.select_catin);
         select_canteen.setOnCheckedChangeListener(new TableRadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(TableRadioGroup group, int checkedId) {
                 if(checkedId == R.id.item_allcatin) {
                     tv_all_canteen.setText("全部饭堂");
+                    popup_canteen.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if(checkedId == R.id.item_1st) {
                     tv_all_canteen.setText("一饭");
+                    popup_canteen.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getYmDishLocations()[0].getCanteen().equals("一")) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if(checkedId == R.id.item_2nd) {
                     tv_all_canteen.setText("二饭");
+                    popup_canteen.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getYmDishLocations()[0].getCanteen().equals("二")) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
 
             }
@@ -250,85 +306,372 @@ public class DrawerActivity extends FragmentActivity
 
 
         //all_dish的PopupWindow
-        TableRadioGroup select_dish = (TableRadioGroup)all_dish.findViewById(R.id.select_dish);
-
+        TableRadioGroup select_dish = (TableRadioGroup)pop_all_dish.findViewById(R.id.select_dish);
         select_dish.setOnCheckedChangeListener(new TableRadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(TableRadioGroup group, int checkedId) {
                 if (checkedId == R.id.item_alldish) {
                     tv_all_dish.setText("所有菜式");
+                    popup_dish.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+
+                    }
+                    simpleAdapter.notifyDataSetChanged();
+
                 }
                 else if(checkedId == R.id.item_dessert){
                     tv_all_dish.setText("甜点");
+                    popup_dish.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getDishType() == 1) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if(checkedId == R.id.item_cake){
                     tv_all_dish.setText("糕点");
+                    popup_dish.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getDishType() == 2) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if(checkedId == R.id.item_soup){
                     tv_all_dish.setText("汤");
+                    popup_dish.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getDishType() == 3) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if(checkedId == R.id.item_set){
                     tv_all_dish.setText("套餐");
+                    popup_dish.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getDishType() == 4) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if(checkedId == R.id.item_normal){
                     tv_all_dish.setText("普通菜式");
+                    popup_dish.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getDishType() == 5) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
             }
         });
 
 
         //all_taste的PopupWindow
-        TableRadioGroup select_taste = (TableRadioGroup)all_taste.findViewById(R.id.select_taste);
+        TableRadioGroup select_taste = (TableRadioGroup)pop_all_taste.findViewById(R.id.select_taste);
 
         select_taste.setOnCheckedChangeListener(new TableRadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(TableRadioGroup group, int checkedId) {
                 if (checkedId == R.id.item_alltaste) {
                     tv_all_taste.setText("所有口味");
+                    popup_taste.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if(checkedId == R.id.item_sweet){
                     tv_all_taste.setText("甜");
+                    popup_taste.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getTaste() == 1) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if(checkedId == R.id.item_peppery){
                     tv_all_taste.setText("辣");
+                    popup_taste.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getTaste() == 2) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if(checkedId == R.id.item_sour){
                     tv_all_taste.setText("酸");
+                    popup_taste.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getTaste() == 3) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if(checkedId == R.id.item_salty){
                     tv_all_taste.setText("咸");
+                    popup_taste.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getTaste() == 4) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
 
             }
         });
 
         //all_price的PopupWindow
-        TableRadioGroup select_price = (TableRadioGroup)all_price.findViewById(R.id.select_price);
+        TableRadioGroup select_price = (TableRadioGroup)pop_all_price.findViewById(R.id.select_price);
 
         select_price.setOnCheckedChangeListener(new TableRadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(TableRadioGroup group, int checkedId) {
                 if (checkedId == R.id.item_allprice) {
                     tv_all_price.setText("所有价格");
+                    popup_price.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if (checkedId == R.id.item_0to3) {
                     tv_all_price.setText("0~3元");
+                    popup_price.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getPrice()>0&&objects_today.get(i).getPrice()<3) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if (checkedId == R.id.item_3to5) {
                     tv_all_price.setText("3~5元");
+                    popup_price.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getPrice()>3&&objects_today.get(i).getPrice()<5) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if (checkedId == R.id.item_5to10) {
                     tv_all_price.setText("5~10元");
+                    popup_price.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getPrice()>5&&objects_today.get(i).getPrice()<10) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
                 else if (checkedId == R.id.item_above10) {
                     tv_all_price.setText("10元以上");
+                    popup_price.dismiss();
+                    //更新listitems_all
+                    listItems_all.clear();
+                    for (int i = 0; i < objects_today.size(); ++i) {
+                        Map<String, Object> listItem_all = new HashMap<String, Object>();
+
+                        if (objects_today.get(i).getPrice()>10) {
+                            listItem_all.put("image_url", all_image[i]);
+                            listItem_all.put("all_name", all_name[i]);
+                            listItem_all.put("all_price", all_price[i]);
+                            listItem_all.put("all_addr", all_addr[i]);
+                            listItem_all.put("all_lovedno", all_lovedno[i]);
+
+                            listItems_all.add(listItem_all);
+                        }
+                    }
+                    simpleAdapter.notifyDataSetChanged();
                 }
 
             }
         });
+        //tableHost单项的点击事件
+        tabHost.getTabWidget().getChildAt(0).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //关闭popupwindow
+                if (popup_dish.isShowing())
+                    popup_dish.dismiss();
+                else if(popup_taste.isShowing())
+                    popup_taste.dismiss();
+                else if(popup_price.isShowing())
+                    popup_price.dismiss();
+                else if(popup_canteen.isShowing())
+                    popup_canteen.dismiss();
 
-
+                tabHost.setCurrentTab(0);
+            }
+        });
     }
+
+
+
     //标签格式
     private void updateTab(TabHost tabHost){
         for(int i=0;i<tabHost.getTabWidget().getChildCount();++i) {
@@ -601,7 +944,7 @@ public class DrawerActivity extends FragmentActivity
         }
 
         //创建一个list集合，集合的元素是Map
-        List<Map<String,Object>> listItems_all = new ArrayList<Map<String, Object>>();
+         listItems_all = new ArrayList<Map<String, Object>>();
 
         for(int i =0;i< objects_today.size();++i){
             Map<String,Object> listItem_all =new HashMap<String,Object>();
@@ -615,7 +958,7 @@ public class DrawerActivity extends FragmentActivity
         }
 
         //创建一个SimpleAdapter
-        SimpleAdapter simpleAdapter = new SimpleAdapter(DrawerActivity.this,listItems_all,
+        simpleAdapter = new SimpleAdapter(DrawerActivity.this,listItems_all,
                 R.layout.all_listmode,
                 new  String[]{"image_url","all_name","all_price","all_addr","all_lovedno"},
                 new int[]{R.id.all_img,R.id.all_name,R.id.all_price,R.id.all_addr,R.id.all_lovedno});
@@ -641,15 +984,16 @@ public class DrawerActivity extends FragmentActivity
         list_all.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //关闭popupWindow
+                //是否关闭其他的popupWindow
                 if (popup_dish.isShowing())
                     popup_dish.dismiss();
-                else if(popup_canteen.isShowing())
+                else if(popup_taste.isShowing())
                     popup_taste.dismiss();
                 else if(popup_price.isShowing())
                     popup_price.dismiss();
-                else if(popup_taste.isShowing())
-                    popup_taste.dismiss();
+                else if(popup_canteen.isShowing())
+                    popup_canteen.dismiss();
+
 
                 //跳转至Detail的Activity
                 Intent intent = new Intent();
